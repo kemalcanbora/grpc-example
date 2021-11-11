@@ -1,0 +1,19 @@
+syntax = "proto3";
+package users;
+
+option go_package = ".;user";
+
+service Users {
+  rpc GetUsers(EmptyReq) returns (GetUsersResponse) {};
+}
+
+message EmptyReq {}
+
+message GetUsersResponse {
+  repeated User users = 1;
+}
+
+message User {
+  string name = 1;
+  int32 age = 2;
+}
